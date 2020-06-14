@@ -1,0 +1,85 @@
+#hero {
+    background: url(../src/img/bg.jpg) no-repeat;
+    background-size: cover;
+
+    &::before {
+        content: '';
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &::after {
+        content: '';
+        height: 100vh;
+        width: 300px;
+        transform-origin: left bottom;
+        transform: skewX(160deg);
+        background: white;
+        position: absolute;
+        right: 100%;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    #hero {
+        &::after {
+            height: 200px;
+            width: 100%;
+            transform-origin: right top;
+            transform: skewY(8deg);
+            left: 0;
+            top: 100%;
+        }
+    }
+}
+
+.sosmed div {
+    height: 40px;
+    width: 40px;
+    background: #1a202c;
+    border: 1px solid #1a202c;
+    border-radius: 5px;
+    z-index: 5;
+    cursor: pointer;
+    // overflow: auto;
+}
+
+.sosmed svg {
+    height: 100%;
+    width: 100%;
+    fill: white;
+    padding: 7px;
+    z-index: 50;
+    position: absolute;
+    transition: 250ms;
+}
+
+.sosmed div::before {
+    content: '';
+    height: 0;
+    width: 0;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+    border-radius: 50%;
+    z-index: 10;
+    transition: 250ms ease-in;
+}
+
+.sosmed div:hover::before {
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+}
+
+.sosmed svg:hover {
+    fill: #1a202c;
+}
